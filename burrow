@@ -6,7 +6,7 @@ if [ -z $1 ];
     "
 fi
 
-if [ $(ps aux | grep -c "[s]sh -f -N -L") -ge 1 ]
+if [ $(ps aux | grep -c "[s]sh -f -N -L $1:localhost:$2") -ge 1 ]
   then
     echo "ssh tunnel already exists, exiting...
     "
