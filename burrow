@@ -1,16 +1,14 @@
 #!/bin/bash
 
 if [ -z $1 ];
-    then
+  then
     echo "usage: $0 <local_port> <remote_port> <user> <remote_host>
     "
-fi
-
-if [ $(ps aux | grep -c "[s]sh -f -N -L $1:localhost:$2") -ge 1 ]
+elif [ $(ps aux | grep -c "[s]sh -f -N -L $1:localhost:$2") -ge 1 ]
   then
     echo "ssh tunnel already exists, exiting...
     "
     exit 0
-  else
-    nohup ssh -f -N -L $1:localhost:$2 $3@$4
+else
+  nohup ssh -f -N -L $1:localhost:$2 $3@$4
 fi
